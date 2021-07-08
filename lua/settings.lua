@@ -46,7 +46,10 @@ if not_vscode() then
     " Close Orgdown todos
     nnoremap <leader>od ^wcwDONE<esc>o<tab>- CUSTOMER: Unidentified<esc>ko<tab>- CLOSED: <C-R>=strftime('%Y-%m-%d %a %H:%M')<CR><ESC>
     " Open settings
-    nnoremap <leader>ve :e C:\Users\rsamson\AppData\Local\nvim\lua\settings.lua<CR>
+    if has('win32')
+      nnoremap <leader>ve :e C:\Users\rsamson\AppData\Local\nvim\lua\settings.lua<CR>
+    else
+      nnoremap <leader>ve :e ~/.config/nvim/lua/settings.lua<CR>
   ]])
   -- better window movement
   vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {noremap = true, silent = true})
@@ -86,7 +89,7 @@ if not_vscode() then
   ---  GENERAL SETTINGS  ---
 
   -- colorscheme
-  vim.cmd('colorscheme base16-one-light')
+  pcall(vim.cmd, 'colorscheme base16-one-light')
 
   -- cwd follows files
   vim.opt.autochdir = true
