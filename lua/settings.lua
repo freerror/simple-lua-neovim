@@ -58,7 +58,8 @@ if not_vscode() then
   vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {noremap = true, silent = true})
 
   -- send overwritten text in visual mode to blackhole register
-  vim.cmd('vnoremap p "_dP')
+  vim.cmd('vnoremap p "_dp')
+  vim.cmd('vnoremap P "_dP')
 
   -- Tab switch buffer (depends barbar plugin)
   vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
