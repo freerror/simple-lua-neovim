@@ -33,5 +33,5 @@ credit to the genius creators of these plugins and their dependencies:
 -  my work for enabling me to slack off
 
 # TODOs
-- TODO Investigate dropping all package management for more control and stability (particularly around what loads and when)
+- TODO Investigate incorporated/default/minimal package management for more control and stability (particularly around what loads and when)
 - TODO Incorporate LSP, Treesitter, DAP and other niceties
