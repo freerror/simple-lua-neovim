@@ -28,7 +28,7 @@ credit to the genius creators of these plugins and their dependencies:
 - Superior light (and dark) colorschemes: RRethy/nvim-base16
 - TUI finder: credit to nvim-telescope/telescope.nvim (and dependencies)
 - Tab bar: credit to romgrk/barbar.nvim
-credit for getting these plugins to work nicely together:
+## credit for getting these plugins to work nicely together:
 -  christianchiarulli/lunarvim aka "Chris@Machine"
 -  my work for enabling me to slack off
 
