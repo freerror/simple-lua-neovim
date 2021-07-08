@@ -214,13 +214,13 @@ if not_vscode() then
   -- it is not allowed to be edited
   vim.opt.writebackup = true
   
-  -- backup file creation
+  -- backup file cration
   vim.opt.backup  = true
 
   ---  PLUGINS  ---
-  require('plugins')
-  pcall(require, 'plugins.barbar')
-  pcall(require, 'plugins.which-key')
+  require('plugins') -- ./plugins/init.lua
+  pcall(require, 'plugins.barbar') -- ./plugins/barbar/init.lua
+  pcall(require, 'plugins.which-key') -- ./plugins/which-key/init.lua
 
   -- load opt plugins
   vim.cmd('au VimEnter * PackerLoad barbar.nvim')
@@ -231,9 +231,9 @@ if not_vscode() then
   au BufWritePost settings.lua source %
   au BufWritePost ginit.vim source %
   if has('win32')
-    au BufWritePost plugin_settings.lua lua reload_config_windows()
+    au BufWritePost */plugins/init.lua lua reload_config_windows()
   else
-    au BufWritePost plugin_settings.lua lua reload_config_linux()
+    au BufWritePost */plugins/init.lua lua reload_config_linux()
   ]])
 else
   require('vscode')

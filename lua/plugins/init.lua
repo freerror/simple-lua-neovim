@@ -8,7 +8,7 @@ return require('packer').startup(function()
   use {'wbthomason/packer.nvim'}
   -- whichkey
   use {
-    'folke/which-key.nvim',
+    'folke/which-key.nvim', -- ./which-key/init.lua
     disable = false
   }
   -- comments
@@ -26,9 +26,8 @@ return require('packer').startup(function()
   }
   -- tab bar
   use {
-    'romgrk/barbar.nvim',
+    'romgrk/barbar.nvim', -- ./barbar/init.lua
     opt = true,
-    disable = false
   }
   -- color
   use {'RRethy/nvim-base16'}
@@ -37,13 +36,13 @@ return require('packer').startup(function()
   use {"nvim-lua/plenary.nvim"}
   use {"tjdevries/astronauta.nvim"}
   use {
-    "nvim-telescope/telescope.nvim",
+    "nvim-telescope/telescope.nvim", -- ./telescope/init.lua
     config = [[require('plugins.telescope')]],
     cmd = "Telescope"
   }
   -- Autocomplete
   use {
-    "hrsh7th/nvim-compe",
+    "hrsh7th/nvim-compe", -- ./compe/init.lua
     event = "InsertEnter",
     config = function()
       require("plugins.compe").config()

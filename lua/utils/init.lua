@@ -1,7 +1,8 @@
 function reload_config_windows()
   vim.cmd([[
     source ~/AppData/Local/nvim/lua/settings.lua
-    source ~/AppData/Local/nvim/lua/plugin_settings.lua
+    source ~/AppData/Local/nvim/lua/plugins/init.lua
+    PackerCompile
     PackerInstall
   ]])
 end
@@ -9,7 +10,8 @@ end
 function reload_config_linux()
   vim.cmd([[
     source ~/.config/nvim/lua/settings.lua
-    source ~/.conig/nvim/lua/plugin_settings.lua
+    source ~/.config/nvim/lua/plugins/init.lua
+    PackerCompile
     PackerInstall
   ]])
 end

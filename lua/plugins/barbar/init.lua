@@ -4,16 +4,16 @@ vim.cmd([[
 let bufferline = get(g:, 'bufferline', {})
 
 " Enable/disable animations
-let bufferline.animation = v:true
+let bufferline.animation = v:false
 
 " Enable/disable auto-hiding the tab bar when there is a single buffer
-let bufferline.auto_hide = v:false
+let bufferline.auto_hide = v:true
 
 " Enable/disable current/total tabpages indicator (top right corner)
-let bufferline.tabpages = v:true
+let bufferline.tabpages = v:false
 
 " Enable/disable close button
-let bufferline.closable = v:true
+let bufferline.closable = v:false
 
 " Enables/disable clickable tabs
 "  - left-click: go to buffer
