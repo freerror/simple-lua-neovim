@@ -13,7 +13,7 @@ How:
 
 # Set up
 1. Clone the repo
-2. Install wbthomason/packer.nvim
+2. Install [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
 3. Run PackerSync
 4. Reopen a few times...trying not to cry
 
