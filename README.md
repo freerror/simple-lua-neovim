@@ -34,4 +34,4 @@ credit to the genius creators of these plugins and their dependencies:
 
 # TODOs
 - TODO Investigate incorporated/default/minimal package management for more control and stability (particularly around what loads and when)
-- TODO Incorporate LSP, Treesitter, DAP and other niceties
+- TODO Incorporate LSP, Treesitter, DAP and other essential IDE components
