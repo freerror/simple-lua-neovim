@@ -10,7 +10,6 @@ How:
 - Keeping configuration files and plugins as independent as possible (not sure how this will play out for people wanting to use this as a distro, I'm sure there is a way using the power of LUA)
 - Less directories, files, sources and requires
 - As few plugins as possible, leveraging built-ins
-- Ergonomic
 
 # Set up
 1. Clone the repo
