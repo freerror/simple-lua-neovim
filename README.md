@@ -3,7 +3,7 @@ WIP! Always WIP!
 
 Concepts: 
 - Minimal neovim config based around the new LUA integration
-- Reduced [inter]dependencies: be able to really get work done without getting bogged with broken plugins or other gotchas
+- Reduced [inter]dependencies: be able to really get work done without getting bogged under with broken plugins or other gotchas
 - Be cross-platform and integrate with VS-Code (for work/fallback)
 
 How:
