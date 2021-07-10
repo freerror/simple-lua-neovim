@@ -12,11 +12,17 @@ How:
 - As few plugins as possible, leveraging built-ins
 
 # Set up
-1. Move your old config out (both nvim and nvim-data), on linux: 
+
+## Move your old config out (both nvim and nvim-data)
+
+### Linux 
 ```
 mv ~/.config/nvim ~/.config/nvim_old; mv ~/.local/share/nvim ~/.local/share/nvim_old
 ```
-1. Clone the repo with: ```
+
+## Clone the repo
+### Linux
+```
 git clone https://github.com/account-sxf/simple-lua-neovim.git ~/.config/nvim
 ```
 1. Run PackerSync
