@@ -47,7 +47,7 @@ if not_vscode() then
     nnoremap <leader>od ^wcwDONE<esc>o<tab>- CUSTOMER: Unidentified<esc>ko<tab>- CLOSED: <C-R>=strftime('%Y-%m-%d %a %H:%M')<CR><ESC>
     " Open settings
     if has('win32')
-      nnoremap <leader>ve :e C:\Users\rsamson\AppData\Local\nvim\lua\settings.lua<CR>
+      nnoremap <leader>ve :e $home\AppData\Local\nvim\lua\settings.lua<CR>
     else
       nnoremap <leader>ve :e ~/.config/nvim/lua/settings.lua<CR>
   ]])
@@ -88,6 +88,9 @@ if not_vscode() then
 
 
   ---  GENERAL SETTINGS  ---
+
+  -- start directory
+  vim.cmd('cd $home')
 
   -- colorscheme
   pcall(vim.cmd, 'colorscheme base16-one-light')
