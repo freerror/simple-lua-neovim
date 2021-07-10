@@ -12,8 +12,8 @@ How:
 - As few plugins as possible, leveraging built-ins
 
 # Set up
-1. Clone the repo
-2. Install [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
+1. Move your old config out (both nvim and nvim-data), on linux: `mv ~/.config/nvim ~/.config/nvim_old; mv ~/.local/share/nvim ~/.local/share/nvim_old`
+1. Clone the repo with: `git clone git@github.com:account-sxf/simple-lua-neovim.git ~/.config/nvim`
 3. Run PackerSync
 4. Reopen a few times...trying not to cry
 
