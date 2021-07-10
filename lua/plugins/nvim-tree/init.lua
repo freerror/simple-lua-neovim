@@ -53,7 +53,7 @@ function close_tab_tree_reopen()
   end
 end
 vim.g.nvim_tree_bindings = {
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = ":lua tree_open_close()<CR>" },
+  { key = {"<CR>", "o", "l", "<2-LeftMouse>"}, cb = ":lua tree_open_close()<CR>" },
   { key = {"<2-RightMouse>", "<C-]>"},    cb = tree_cb("cd") },
   { key = "<C-v>",                        cb = tree_cb("vsplit") },
   { key = "<C-x>",                        cb = tree_cb("split") },

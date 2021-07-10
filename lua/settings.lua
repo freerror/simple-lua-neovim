@@ -104,7 +104,7 @@ if not_vscode() then
   vim.opt.clipboard = "unnamedplus"
 
   -- more space in the neovim command line for displaying messages
-  vim.opt.cmdheight = 5
+  vim.opt.cmdheight = 2
 
   -- fix indentline for now
   -- vim.opt.colorcolumn = "99999"
