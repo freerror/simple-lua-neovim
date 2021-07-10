@@ -36,7 +36,7 @@ vim.g.nvim_tree_update_cwd = 1
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 function tree_open_close()
   vim.cmd(":lua require'nvim-tree'.on_keypress('edit')")
-  vim.g.tree_open = 0
+  vim.g.tree_open = 1
 end
 function tree_close_close()
   vim.cmd("lua require'nvim-tree'.on_keypress('close')")
