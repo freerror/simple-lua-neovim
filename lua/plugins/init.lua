@@ -24,11 +24,12 @@ return require('packer').startup(function()
     'lukas-reineke/indent-blankline.nvim',
     opt = true
   }
-  -- tab bar
-  use {
-    'romgrk/barbar.nvim', -- ./barbar/init.lua
-    opt = true,
-  }
+  -- lightline
+  use {'itchyny/lightline.vim'}
+  -- lightline-bufferline
+  use {'mengelbrecht/lightline-bufferline'}
+  -- nvim-tree
+  use {'kyazdani42/nvim-tree.lua'}
   -- color
   use {'RRethy/nvim-base16'}
   -- Telescope

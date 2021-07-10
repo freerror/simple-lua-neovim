@@ -43,44 +43,8 @@ local opts = {
     nowait = false -- use `nowait` when creating keymaps
 }
 
--- no hl
-vim.api.nvim_set_keymap('n', '<Leader>h', ':let @/=""<CR>',
-                        {noremap = true, silent = true})
-
--- explorer
-
--- TODO this introduces some bugs unfortunately
-vim.api.nvim_set_keymap('n', '<Leader>e',
-                        ":lua require'lv-nvimtree'.toggle_tree()<CR>",
-                        {noremap = true, silent = true})
--- vim.api.nvim_set_keymap('n', '<Leader>e',
---                         ":NvimTreeToggle<CR>",
---                         {noremap = true, silent = true})
-
 -- dashboard
 vim.api.nvim_set_keymap('n', '<Leader>;', ':Dashboard<CR>',
-                        {noremap = true, silent = true})
-
--- Reload settings
--- Based on:
---   " Fast edit .vimrc
---   nnoremap <Leader>ve :e $MYVIMRC<cr>
--- 
---   " Fast reload vim config
---   nnoremap <Leader>vr :source $MYVIMRC<cr> 
--- vim.api.nvim_set_keymap("n", "<leader>vr", ":source $MYVIMRC<cr>",
---                         {noremap = true, silent = true})
-
-
-
--- Comments
-vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>",
-                        {noremap = true, silent = true})
-vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>",
-                        {noremap = true, silent = true})
-
--- close buffer
-vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>",
                         {noremap = true, silent = true})
 
 local mappings = {
@@ -88,9 +52,9 @@ local mappings = {
     -- customize here:
     ["/"] = "Comment",
     -- ["c"] = "Close Buffer",
-    ["e"] = "Explorer",
     ["f"] = "Find File",
-    ["h"] = "No Highlight",
+    ["."] = {"<cmd>:cd %:p:h<cr>", "CD to current file directory"},
+    e = {"<cmd>NvimTreeToggle<cr><cmd>execute Tree_Toggle()<cr><cmd>wincmd p<cr>", "File Explorer"},
     c = {"<cmd>close<cr>", "Close Current Split/Window"},
     C = {"<cmd>vspl<cr>", "Create Vertical Split"},
     D = {
@@ -130,18 +94,26 @@ local mappings = {
         name = "Organization",
         i = {'"=strftime("%y%m%d%H%M")<CR>p', "Insert Datestring (Zettel ID)"},
     },
-    b = {
-        name = "Buffers",
-        b = {"<cmd>BufferPick<cr>", "Buffer Pick"},
-        w = {"<cmd>BufferWipeout<cr>", "Wipeout buffer"},
-        e = {"<cmd>BufferCloseAllButCurrent<cr>", "Close all but current buffer"},
-        h = {"<cmd>BufferMovePrevious<cr>", "Move left"},
-        l = {"<cmd>BufferMoveNext<cr>", "Move right"},
-        H = {"<cmd>BufferCloseBuffersLeft<cr>","Close all BufferLines to the left"},
-        L = {"<cmd>BufferCloseBuffersRight<cr>","Close all BufferLines to the right"},
-        D = {"<cmd>BufferOrderByDirectory<cr>","Sort BufferLines automatically by directory"},
-        S = {"<cmd>BufferOrderByLanguage<cr>","Sort BufferLines automatically by language"}
+    p = {
+        name = "Packer",
+        i = {"<cmd>PackerInstall<cr>", "Install new packages"},
+        u = {"<cmd>PackerUpdate<cr>", "Update all packages"},
+        s = {"<cmd>PackerSync<cr>", "Update & install all packages"},
+        c = {"<cmd>PackerClean<cr>", "Remove old packages"},
+        r = {"<cmd>PackerCompile<cr>", "Re-compile packer for start"},
     },
+    -- b = {
+    --     name = "Buffers",
+    --     b = {"<cmd>BufferPick<cr>", "Buffer Pick"},
+    --     w = {"<cmd>BufferWipeout<cr>", "Wipeout buffer"},
+    --     e = {"<cmd>BufferCloseAllButCurrent<cr>", "Close all but current buffer"},
+    --     h = {"<cmd>BufferMovePrevious<cr>", "Move left"},
+    --     l = {"<cmd>BufferMoveNext<cr>", "Move right"},
+    --     H = {"<cmd>BufferCloseBuffersLeft<cr>","Close all BufferLines to the left"},
+    --     L = {"<cmd>BufferCloseBuffersRight<cr>","Close all BufferLines to the right"},
+    --     D = {"<cmd>BufferOrderByDirectory<cr>","Sort BufferLines automatically by directory"},
+    --     S = {"<cmd>BufferOrderByLanguage<cr>","Sort BufferLines automatically by language"}
+    -- },
 
     -- diagnostics vanilla nvim
     -- -- diagnostic

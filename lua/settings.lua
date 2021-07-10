@@ -3,7 +3,9 @@
 -- * Comments plugin
 -- * Which-key (basic settings too, terminal bindings, old bindings)
 -- * VS Code and LUA Separation (good enough)
--- * Telescope [In progress..]
+-- * Telescope [ done ]
+-- * LSP [ next ]
+-- * Treesitter [ next ]
 -- * Nvim-tree [ next ]
 -- * Undotree [ next ]
 
@@ -65,8 +67,8 @@ if not_vscode() then
   vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
   vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
 
-  -- Close Buffertab (depends barbar plugin)
-  vim.api.nvim_set_keymap('n', '<C-w>', ':BufferClose<CR>', {noremap = true, silent = true})
+  -- Close buffer (tab), closing nvim-tree and reopening if it was open
+  vim.api.nvim_set_keymap('n', '<C-w>', ':lua close_tab_tree_reopen()<CR>', {noremap = true, silent = true})
 
   -- Comments (depends nvim-comments plugin)
   vim.api.nvim_set_keymap('n', '<C-_>', ':CommentToggle<CR>', {noremap = true, silent = true})
@@ -93,7 +95,7 @@ if not_vscode() then
   pcall(vim.cmd, 'colorscheme base16-one-light')
 
   -- cwd follows files
-  vim.opt.autochdir = true
+  vim.opt.autochdir = false -- use <leader>. instead
 
   -- how the scrolling tracks cursor (999 makes it stay centred)
   vim.opt.scrolloff = 10
@@ -102,7 +104,7 @@ if not_vscode() then
   vim.opt.clipboard = "unnamedplus"
 
   -- more space in the neovim command line for displaying messages
-  vim.opt.cmdheight = 2
+  vim.opt.cmdheight = 5
 
   -- fix indentline for now
   -- vim.opt.colorcolumn = "99999"
@@ -195,7 +197,7 @@ if not_vscode() then
   vim.opt.number = true
 
   -- set relative numbered lines
-  vim.opt.relativenumber = true
+  vim.opt.relativenumber = false
 
   -- set complete options
   vim.opt.completeopt = {'menuone', 'noselect'}
@@ -226,15 +228,19 @@ if not_vscode() then
     vim.api.nvim_command 'packadd packer.nvim'
   end
 
+  -- plugin definitions
   require('plugins') -- ./plugins/init.lua
-  pcall(require, 'plugins.barbar') -- ./plugins/barbar/init.lua
-  pcall(require, 'plugins.which-key') -- ./plugins/which-key/init.lua
+  -- plugin settings
+  require('plugins.lightline') -- ./plugins/lightline/init.lua
+  require('plugins.which-key') -- ./plugins/which-key/init.lua
+  require('plugins.nvim-tree') -- ./plugins/nvim-tree/init.lua
 
   -- load opt plugins
-  vim.cmd('au VimEnter * PackerLoad barbar.nvim')
   vim.cmd('au VimEnter * PackerLoad indent-blankline.nvim')
-  -- reload/install plugins/settings automagically
-  require('utils')
+
+  -- utils
+  require('utils') -- ./utils/init.lua
+  -- recompile packer/settings automagically
   vim.cmd([[
   au BufWritePost settings.lua source %
   au BufWritePost ginit.vim source %

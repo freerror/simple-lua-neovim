@@ -37,12 +37,12 @@ credit to the genius creators of these plugins and their dependencies:
 - Indent lines: lukas-reineke/indent-blankline.nvim
 - Superior light (and dark) colorschemes: RRethy/nvim-base16
 - TUI finder: credit to nvim-telescope/telescope.nvim (and dependencies)
-- Tab bar: credit to romgrk/barbar.nvim
+- Tab and buffer line: credit to itchyny/lightline.vim and mengelbrecht/lightline-bufferline
 
 ## Credit for getting plugins to work nicely together:
 -  christianchiarulli/lunarvim aka "Chris@Machine"
 -  my work for enabling me to slack off
 
 # TODOs
-- TODO Investigate incorporated/default/minimal package management for more control and stability (particularly around what loads and when)
+- TODO Fix clashing comment + bracket matches highlight
 - TODO Incorporate LSP, Treesitter, DAP and other essential IDE components
