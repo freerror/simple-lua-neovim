@@ -89,9 +89,6 @@ if not_vscode() then
 
   ---  GENERAL SETTINGS  ---
 
-  -- start directory
-  vim.cmd('cd $home')
-
   -- colorscheme
   pcall(vim.cmd, 'colorscheme base16-one-light')
 
@@ -222,6 +219,13 @@ if not_vscode() then
   vim.opt.backup  = true
 
   ---  PLUGINS  ---
+  -- bootstrap packer
+  local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.api.nvim_command 'packadd packer.nvim'
+  end
+
   require('plugins') -- ./plugins/init.lua
   pcall(require, 'plugins.barbar') -- ./plugins/barbar/init.lua
   pcall(require, 'plugins.which-key') -- ./plugins/which-key/init.lua

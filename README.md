@@ -14,8 +14,8 @@ How:
 # Set up
 1. Move your old config out (both nvim and nvim-data), on linux: `mv ~/.config/nvim ~/.config/nvim_old; mv ~/.local/share/nvim ~/.local/share/nvim_old`
 1. Clone the repo with: `git clone git@github.com:account-sxf/simple-lua-neovim.git ~/.config/nvim`
-3. Run PackerSync
-4. Reopen a few times...trying not to cry
+1. Run PackerSync
+1. Restart neovim
 
 # What's working
 credit to the genius creators of these plugins and their dependencies:
@@ -27,6 +27,7 @@ credit to the genius creators of these plugins and their dependencies:
 - Superior light (and dark) colorschemes: RRethy/nvim-base16
 - TUI finder: credit to nvim-telescope/telescope.nvim (and dependencies)
 - Tab bar: credit to romgrk/barbar.nvim
+
 ## Credit for getting plugins to work nicely together:
 -  christianchiarulli/lunarvim aka "Chris@Machine"
 -  my work for enabling me to slack off
