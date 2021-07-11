@@ -6,47 +6,48 @@
 return require('packer').startup(function()
   -- packer (manages itself)
   use {'wbthomason/packer.nvim'}
+
   -- whichkey
-  use {
-    'folke/which-key.nvim', -- ./which-key/init.lua
-    disable = false
-  }
+  use {'folke/which-key.nvim', -- ./which-key/init.lua
+       disable = false}
+
   -- comments
-  use {
-    "terrortylor/nvim-comment",
-    cmd = "CommentToggle",
-    config = function()
-        require('nvim_comment').setup()
-    end
-  }
+  use {"terrortylor/nvim-comment",
+       cmd = "CommentToggle",
+       config = function()
+           require('nvim_comment').setup()
+       end}
+
   -- indent line
-  use {
-    'lukas-reineke/indent-blankline.nvim',
-    opt = true
-  }
+  use {'lukas-reineke/indent-blankline.nvim', opt = true}
+
   -- lightline
   use {'itchyny/lightline.vim'}
+
   -- lightline-bufferline
   use {'mengelbrecht/lightline-bufferline'}
+
   -- nvim-tree
   use {'kyazdani42/nvim-tree.lua'}
+
   -- color
   use {'RRethy/nvim-base16'}
-  -- Telescope
+
+  -- telescope
   use {"nvim-lua/popup.nvim"}
   use {"nvim-lua/plenary.nvim"}
   use {"tjdevries/astronauta.nvim"}
-  use {
-    "nvim-telescope/telescope.nvim", -- ./telescope/init.lua
-    config = [[require('plugins.telescope')]],
-    cmd = "Telescope"
-  }
-  -- Autocomplete
-  use {
-    "hrsh7th/nvim-compe", -- ./compe/init.lua
-    event = "InsertEnter",
-    config = function()
-      require("plugins.compe").config()
-    end,
-  }
+  use {"nvim-telescope/telescope.nvim", -- ./telescope/init.lua
+       config = [[require('plugins.telescope')]],
+       cmd = "Telescope"}
+
+  -- autocomplete
+  use {"hrsh7th/nvim-compe", -- ./compe/init.lua
+       event = "InsertEnter",
+       config = function()
+         require("plugins.compe").config()
+       end}
+
+  -- LSP
+  use {"neovim/nvim-lspconfig"} -- ./lsp/init.lua
 end)

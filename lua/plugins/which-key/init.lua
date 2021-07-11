@@ -49,12 +49,14 @@ vim.api.nvim_set_keymap('n', '<Leader>;', ':Dashboard<CR>',
 
 local mappings = {
 
+    -- TODO centralize
     -- customize here:
     ["/"] = "Comment",
     -- ["c"] = "Close Buffer",
     ["f"] = "Find File",
     ["."] = {"<cmd>:cd %:p:h<cr>", "CD to current file directory"},
     e = {"<cmd>NvimTreeToggle<cr><cmd>execute Tree_Toggle()<cr><cmd>wincmd p<cr>", "File Explorer"},
+    E = {"<cmd>NvimTreeOpen<cr><cmd>execute Tree_Toggle()<cr><cmd>wincmd p<cr>", "File Explorer"},
     c = {"<cmd>close<cr>", "Close Current Split/Window"},
     C = {"<cmd>vspl<cr>", "Create Vertical Split"},
     D = {
@@ -74,9 +76,10 @@ local mappings = {
     n = {"<cmd>noh<cr>", "No search highlight"},
     t = {
         name = "Terminal",
-        t = {"<cmd>split<cr><cmd>resize 20<cr><cmd>term<cr>", "Open Terminal"},
-        j = {"<cmd>resize 1<cr>", "Downsized Split"},
-        k = {"<cmd>resize 20<cr>", "Upsized Split"}
+        t = {"<cmd>term<cr>a", "Open Terminal tab"},
+        T = {"<cmd>split<cr><cmd>resize 20<cr><cmd>term<cr><cmd>wincmd j<cr>a", "Open Terminal split"},
+        j = {"<cmd>wincmd j<cr><cmd>resize 1<cr><cmd>wincmd p<cr>", "Downsize terminal and return"},
+        k = {"<cmd>wincmd j<cr><cmd>resize 20<cr>a", "Upsize and return to terminal"}
     },
     T = {
         name = "theme",
@@ -102,55 +105,6 @@ local mappings = {
         c = {"<cmd>PackerClean<cr>", "Remove old packages"},
         r = {"<cmd>PackerCompile<cr>", "Re-compile packer for start"},
     },
-    -- b = {
-    --     name = "Buffers",
-    --     b = {"<cmd>BufferPick<cr>", "Buffer Pick"},
-    --     w = {"<cmd>BufferWipeout<cr>", "Wipeout buffer"},
-    --     e = {"<cmd>BufferCloseAllButCurrent<cr>", "Close all but current buffer"},
-    --     h = {"<cmd>BufferMovePrevious<cr>", "Move left"},
-    --     l = {"<cmd>BufferMoveNext<cr>", "Move right"},
-    --     H = {"<cmd>BufferCloseBuffersLeft<cr>","Close all BufferLines to the left"},
-    --     L = {"<cmd>BufferCloseBuffersRight<cr>","Close all BufferLines to the right"},
-    --     D = {"<cmd>BufferOrderByDirectory<cr>","Sort BufferLines automatically by directory"},
-    --     S = {"<cmd>BufferOrderByLanguage<cr>","Sort BufferLines automatically by language"}
-    -- },
-
-    -- diagnostics vanilla nvim
-    -- -- diagnostic
-    -- function lv_utils.get_all()
-    --     vim.lsp.diagnostic.get_all()
-    -- end
-    -- function lv_utils.get_next()
-    --     vim.lsp.diagnostic.get_next()
-    -- end
-    -- function lv_utils.get_prev()
-    --     vim.lsp.diagnostic.get_prev()
-    -- end
-    -- function lv_utils.goto_next()
-    --     vim.lsp.diagnostic.goto_next()
-    -- end
-    -- function lv_utils.goto_prev()
-    --     vim.lsp.diagnostic.goto_prev()
-    -- end
-    -- function lv_utils.show_line_diagnostics()
-    --     vim.lsp.diagnostic.show_line_diagnostics()
-    -- end
-
-    -- " Available Debug Adapters:
-    -- "   https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/
-    -- " Adapter configuration and installation instructions:
-    -- "   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
-    -- " Debug Adapter protocol:
-    -- "   https://microsoft.github.io/debug-adapter-protocol/
-    -- " Debugging
-    -- command! DebugToggleBreakpoint lua require'dap'.toggle_breakpoint()
-    -- command! DebugStart lua require'dap'.continue()
-    -- command! DebugContinue lua require'dap'.continue()
-    -- command! DebugStepOver lua require'dap'.step_over()
-    -- command! DebugStepOut lua require'dap'.step_out()
-    -- command! DebugStepInto lua require'dap'.step_into()
-    -- command! DebugToggleRepl lua require'dap'.repl.toggle()
-    -- command! DebugGetSession lua require'dap'.session()
     -- D = {
     --     name = "Debug",
     --     b = {"<cmd>DebugToggleBreakpoint<cr>", "Toggle Breakpoint"},

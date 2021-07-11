@@ -50,8 +50,11 @@ if not_vscode() then
     " Open settings
     if has('win32')
       nnoremap <leader>ve :e $home\AppData\Local\nvim\lua\settings.lua<CR>
+      nnoremap <leader>vp :e $home\AppData\Local\nvim\lua\plugins\init.lua<CR>
+      set shell=powershell.exe
     else
       nnoremap <leader>ve :e ~/.config/nvim/lua/settings.lua<CR>
+      nnoremap <leader>vp :e ~/.config/nvim/lua/plugins/init.lua<CR>
   ]])
   -- better window movement
   vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {noremap = true, silent = true})
@@ -77,7 +80,10 @@ if not_vscode() then
   vim.api.nvim_set_keymap('v', '<C-/>', ':CommentToggle<CR>', {noremap = true, silent = true})
 
   -- find files
-    vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true, silent = true})
+  vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true, silent = true})
+
+  -- Exit terminal
+  vim.api.nvim_set_keymap('t', '<C-k>', '<C-\\><C-n>', {noremap = true, silent = false})
 
   -- Save Buffer
   vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', {noremap = true, silent = true})
@@ -230,16 +236,18 @@ if not_vscode() then
 
   -- plugin definitions
   require('plugins') -- ./plugins/init.lua
-  -- plugin settings
+  -- plugin settings (TODO can these be put in the plugin definitions setup/config etc)
   require('plugins.lightline') -- ./plugins/lightline/init.lua
   require('plugins.which-key') -- ./plugins/which-key/init.lua
   require('plugins.nvim-tree') -- ./plugins/nvim-tree/init.lua
+  require('plugins.lsp') -- ./plugins/lsp/init.lua
 
   -- load opt plugins
   vim.cmd('au VimEnter * PackerLoad indent-blankline.nvim')
 
   -- utils
   require('utils') -- ./utils/init.lua
+
   -- recompile packer/settings automagically
   vim.cmd([[
   au BufWritePost settings.lua source %

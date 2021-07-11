@@ -13,6 +13,10 @@ How:
 
 # Set up
 
+## Satisfy requirements
+- Fira Code Font
+- Node.js NPM
+
 ## Move your old config out (both nvim and nvim-data)
 
 ### Linux 
@@ -44,5 +48,8 @@ credit to the genius creators of these plugins and their dependencies:
 -  my work for enabling me to slack off
 
 # TODOs
+- TODO LSP
+- TODO Treesitter
+- TODO DAP
+- TODO Move ALL user configuration to settings.lua/or something similar to lv-settings
 - TODO Fix clashing comment + bracket matches highlight
-- TODO Incorporate LSP, Treesitter, DAP and other essential IDE components
