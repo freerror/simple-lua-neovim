@@ -30,6 +30,7 @@ vim.cmd("xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRi
 vim.cmd("nnoremap gr <Cmd>call VSCodeNotify('editor.action.goToReferences')<CR>")
 
 -- NEOVIM SETTINGS
+vim.opt.ignorecase = true
 vim.cmd("set ff=unix")
 vim.cmd("set fileencoding=utf-8")
 vim.cmd("set encoding=utf-8")
