@@ -7,6 +7,9 @@ return require('packer').startup(function()
   -- packer (manages itself)
   use {'wbthomason/packer.nvim'}
 
+  -- vim-sneak
+  use {'justinmk/vim-sneak'}
+
   -- whichkey
   use {'folke/which-key.nvim', -- ./which-key/init.lua
        disable = false}

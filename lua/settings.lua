@@ -94,6 +94,10 @@ if not_vscode() then
   vim.cmd('inoremap <expr> <c-j> (\"\\<C-n>\")')
   vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
 
+  -- Vim-sneak settings
+  vim.cmd('let g:sneak#label = 1')
+  vim.cmd('hi SneakScope ctermfg=15 ctermbg=201 guifg=white guibg=magenta')
+
 
   ---  GENERAL SETTINGS  ---
 
