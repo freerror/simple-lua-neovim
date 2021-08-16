@@ -230,7 +230,7 @@ if not_vscode() then
   -- backup file cration
   vim.opt.backup  = true
   vim.opt.backupdir = ""
-  vim.opt.backupdir = "~/tmp,/tmp"
+  vim.opt.backupdir = "~/tmp//, $VIMRUNTIME\\temp\\"
 
   ---  PLUGINS  ---
   -- bootstrap packer
