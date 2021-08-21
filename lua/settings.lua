@@ -67,8 +67,10 @@ if not_vscode() then
   vim.cmd('vnoremap p "_c<C-r>+<esc>')
 
   -- Tab switch buffer (depends barbar plugin)
-  vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
-  vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
+  vim.cmd("set wildcharm=<Tab>")
+  vim.cmd("nnoremap <Tab> :b <Tab>")
+  vim.cmd("nnoremap gt :bnext<cr>")
+  vim.cmd("nnoremap gT :bprevious<cr>")
 
   -- Close buffer (tab), closing nvim-tree and reopening if it was open
   vim.api.nvim_set_keymap('n', '<C-w>', ':lua close_tab_tree_reopen()<CR>', {noremap = true, silent = true})
@@ -96,7 +98,7 @@ if not_vscode() then
 
   -- Vim-sneak settings
   vim.cmd('let g:sneak#label = 1')
-  vim.cmd('hi SneakScope ctermfg=15 ctermbg=201 guifg=white guibg=magenta')
+  vim.cmd('hi SneakScope ctermfg=15 ctermbg=201 guifg=white guibg=orange')
 
 
   ---  GENERAL SETTINGS  ---
@@ -225,12 +227,10 @@ if not_vscode() then
   -- if a file is being edited by another program 
   -- (or was written to file while editing with another program), 
   -- it is not allowed to be edited
-  vim.opt.writebackup = true
+  vim.opt.writebackup = false
   
   -- backup file cration
-  vim.opt.backup  = false
-  vim.opt.backupdir = ""
-  vim.opt.backupdir = "~/tmp//" -- unsure if this works aa
+  vim.opt.backup  = true
 
   ---  PLUGINS  ---
   -- bootstrap packer
