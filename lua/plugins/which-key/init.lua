@@ -9,8 +9,7 @@ require("which-key").setup {
             motions = false, -- adds help for motions
             text_objects = false, -- help for text objects triggered after entering an operator
             windows = true, -- default bindings on <c-w>
-            nav = true, -- misc bindings to work with windows
-            z = true, -- bindings for folds, spelling and others prefixed with z
+            nav = true, -- misc bindings to work with windows z = true, -- bindings for folds, spelling and others prefixed with z
             g = true -- bindings for prefixed with g
         }
     },
@@ -64,6 +63,8 @@ local mappings = {
         b = {"<cmd>bd<cr>", "Delete Current Buffer"},
         f = {"<cmd>call delete(expand('%'))<cr>", "Delete Current File"},
     },
+    l = {"<cmd>bnext<cr>", "Next Buffer"},
+    h = {"<cmd>bprevious<cr>", "Previous Buffer"},
     d = {
         name = "Diff",
         n = {"<cmd>diffthis<cr><cmd>vspl<cr><cmd>bnext<cr><cmd>diffthis<cr>", "New diff window/split"},
@@ -135,7 +136,7 @@ local mappings = {
             "Checkout commit(for current file)"
         }
     },
-    l = {
+    L = {
         name = "LSP",
         a = {"<cmd>Lspsaga code_action<cr>", "Code Action"},
         A = {"<cmd>Lspsaga range_code_action<cr>", "Selected Action"},

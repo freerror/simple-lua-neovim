@@ -46,7 +46,7 @@ if not_vscode() then
     " Started Orgdown todo
     nnoremap <leader>os o<tab>- STARTED: <C-R>=strftime('%Y-%m-%d %a %H:%M')<CR><ESC>
     " Close Orgdown todos
-    nnoremap <leader>od ^wcwDONE<esc>o<tab>- CUSTOMER: Unidentified<esc>ko<tab>- CLOSED: <C-R>=strftime('%Y-%m-%d %a %H:%M')<CR><ESC>
+    nnoremap <leader>od ^wcwDONE<esc>o<tab>- CLOSED: <C-R>=strftime('%Y-%m-%d %a %H:%M')<CR><ESC>
     " Open settings
     if has('win32')
       nnoremap <leader>ve :e $home\AppData\Local\nvim\lua\settings.lua<CR>
@@ -67,10 +67,8 @@ if not_vscode() then
   vim.cmd('vnoremap p "_c<C-r>+<esc>')
 
   -- Tab switch buffer (depends barbar plugin)
-  vim.cmd("set wildcharm=<Tab>")
-  vim.cmd("nnoremap <Tab> :b <Tab>")
-  vim.cmd("nnoremap gt :bnext<cr>")
-  vim.cmd("nnoremap gT :bprevious<cr>")
+  -- vim.cmd("set wildcharm=<Tab>")
+  vim.cmd("nnoremap <Tab> :edit #<CR>")
 
   -- Close buffer (tab), closing nvim-tree and reopening if it was open
   vim.api.nvim_set_keymap('n', '<C-w>', ':lua close_tab_tree_reopen()<CR>', {noremap = true, silent = true})
@@ -227,10 +225,10 @@ if not_vscode() then
   -- if a file is being edited by another program 
   -- (or was written to file while editing with another program), 
   -- it is not allowed to be edited
-  vim.opt.writebackup = false
+  vim.opt.writebackup = true
   
   -- backup file cration
-  vim.opt.backup  = true
+  vim.opt.backup  = false
 
   ---  PLUGINS  ---
   -- bootstrap packer
